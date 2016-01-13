@@ -8,11 +8,19 @@ sense.set_rotation(180)
 sense.clear()
 
 
+<<<<<<< HEAD
 def fix_temp(temp, cpu, r, g, b, rb, gb, bb):
     temp = ((temp - ((cpu - temp)/2))-6)
     temp = (temp * 1.8) + 32
     temp = round(temp)
     sense.show_message("T:" + str(temp), text_colour=[r, g, b], back_colour=[rb, gb, bb])
+=======
+def fix_temp(temp, cpu, r, g, b):
+    temp = ((temp - ((cpu - temp)/2))-6)
+    temp = (temp * 1.8) + 32
+    temp = round(temp)
+    sense.show_message("T:" + str(temp), text_colour=[r, g, b])
+>>>>>>> a40882d125339fec1eca93f7648d857226f04c8e
 
 
 while True:
@@ -30,6 +38,7 @@ while True:
     g = random.randint(0, 255)
     b = random.randint(0, 255)
 
+<<<<<<< HEAD
     rb = random.randint(0, 255)
     gb = random.randint(0, 255)
     bb = random.randint(0, 255)
@@ -51,5 +60,13 @@ while True:
     fix_temp(temp, cputemp, r, g, b, rb, gb, bb)
 
     sense.show_message("H:" + str(hum), text_colour=[r, g, b], back_colour=[rb, gb, bb])
+=======
+    hum = sense.get_humidity()
+    hum = round(hum)
+
+    fix_temp(temp, cputemp, r, g, b)
+
+    sense.show_message("H:" + str(hum), text_colour=[r, g, b])
+>>>>>>> a40882d125339fec1eca93f7648d857226f04c8e
 
     time.sleep(4)
